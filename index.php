@@ -1,4 +1,11 @@
-Dobbiamo creare una pagina che permetta ai nostri utenti di utilizzare il nostro generatore di password (abbastanza)
+<?php
+$frase = 'PHP Strong Password Generator';
+
+
+?>
+
+<!DOCTYPE html>
+<!--Dobbiamo creare una pagina che permetta ai nostri utenti di utilizzare il nostro generatore di password (abbastanza)
 sicure.
 L’esercizio è suddiviso in varie milestone ed è molto importante svilupparle in modo ordinato.
 Milestone 1
@@ -15,24 +22,30 @@ Milestone 4 (BONUS)
 Gestire ulteriori parametri per la password: quali caratteri usare fra numeri, lettere e simboli. Possono essere scelti
 singolarmente (es. solo numeri) oppure possono essere combinati fra loro (es. numeri e simboli, oppure tutti e tre
 insieme).
-Dare all’utente anche la possibilità di permettere o meno la ripetizione di caratteri uguali.
-
-<?php
-$frase = 'Prova php';
-?>
-
-<!DOCTYPE html>
+Dare all’utente anche la possibilità di permettere o meno la ripetizione di caratteri uguali.-->
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title>PHP Strong Password Generator</title>
 </head>
 
 <body>
+
+
     <h1><?php echo $frase; ?></h1>
 </body>
+<section>
+    <form action="index.php" method="GET">
+        <label for="password"></label>
+        <p>Inserisci il numero di caratteri della tua password</p>
+        <input type="text" name="pswd" id="password">
+        <button type="submit">Invia</button>
+    </form>
+</section>
 
 </html>
