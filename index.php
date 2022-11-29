@@ -1,16 +1,13 @@
 <?php
+include __DIR__ . '/function.php';
+
 $frase = 'PHP Strong Password Generator';
 $password = '';
 $alphabetNumber = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()[]';
 $i = 1;
 
 if (isset($_GET['password'])) {
-    $passwordLength = $_GET['password'];
-    do {
-        $randomChar = $alphabetNumber[rand(0, strlen($alphabetNumber) - 1)];
-        echo $randomChar;
-        $i++;
-    } while ($i <= $passwordLength);
+    $password = createPassword();
 }
 
 ?>
