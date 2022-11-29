@@ -1,6 +1,17 @@
 <?php
 $frase = 'PHP Strong Password Generator';
+$password = '';
+$alphabetNumber = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()[]';
+$i = 1;
 
+if (isset($_GET['password'])) {
+    $passwordLength = $_GET['password'];
+    do {
+        $randomChar = $alphabetNumber[rand(0, strlen($alphabetNumber) - 1)];
+        echo $randomChar;
+        $i++;
+    } while ($i <= $passwordLength);
+}
 
 ?>
 
@@ -12,12 +23,18 @@ Milestone 1
 Creare un form che invii in GET la lunghezza della password. Una nostra funzione utilizzerà questo dato per generare una
 password casuale (composta da lettere, lettere maiuscole, numeri e simboli) da restituire all’utente.
 Scriviamo tutto (logica e layout) in un unico file index.php
+____________________
+
 Milestone 2
 Verificato il corretto funzionamento del nostro codice, spostiamo la logica in un file functions.php che includeremo poi
 nella pagina principale
+____________________
+
 Milestone 3
 Invece di visualizzare la password nella index, effettuare un redirect ad una pagina dedicata che tramite $_SESSION
 recupererà la password da mostrare all’utente.
+____________________
+
 Milestone 4 (BONUS)
 Gestire ulteriori parametri per la password: quali caratteri usare fra numeri, lettere e simboli. Possono essere scelti
 singolarmente (es. solo numeri) oppure possono essere combinati fra loro (es. numeri e simboli, oppure tutti e tre
@@ -35,17 +52,20 @@ Dare all’utente anche la possibilità di permettere o meno la ripetizione di c
 </head>
 
 <body>
+    <section>
+        <div class="container"></div>
+        <h1><?php echo $frase; ?></h1>
 
-
-    <h1><?php echo $frase; ?></h1>
+        <form action="index.php" method="GET" name="generator">
+            <label for="password"></label>
+            <p>Inserisci il numero di caratteri della tua password</p>
+            <input type="text" name="password" id="idPassword">
+            <button type="submit">Invia</button>
+            <button type="reset">Annulla</button>
+        </form>
+        </div>
+    </section>
 </body>
-<section>
-    <form action="index.php" method="GET">
-        <label for="password"></label>
-        <p>Inserisci il numero di caratteri della tua password</p>
-        <input type="text" name="pswd" id="password">
-        <button type="submit">Invia</button>
-    </form>
-</section>
+
 
 </html>
